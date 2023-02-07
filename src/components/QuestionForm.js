@@ -15,10 +15,12 @@ function QuestionForm( { onAddNewQuestion } ) {
       ...formData,
       [event.target.name]: event.target.value,
     });
+    
   }
 
   function handleSubmit(event) {
     event.preventDefault();
+    console.log(formData)
 
     // POST request
     fetch("http://localhost:4000/questions", {
