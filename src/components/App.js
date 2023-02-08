@@ -21,10 +21,19 @@ function App() {
     console.log(questions)
   }
 
+  function onDeleteQuestion(deletedQuestion) {
+    const newArray = questions.filter(question => 
+        deletedQuestion.id !== question.id
+      )
+      setQuestions(newArray)
+  }
+
   return (
     <main>
       <AdminNavBar onChangePage={setPage} />
-      {page === "Form" ? <QuestionForm onAddNewQuestion={onAddNewQuestion}/> : <QuestionList questions={questions}/>}
+      {page === "Form" ? 
+      <QuestionForm onAddNewQuestion={onAddNewQuestion}/> : 
+      <QuestionList questions={questions} onDeleteQuestion={onDeleteQuestion}/>}
     </main>
   );
 }
