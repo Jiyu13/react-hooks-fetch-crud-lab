@@ -1,7 +1,7 @@
 import React from "react";
 import QuestionItem from "./QuestionItem"
 
-function QuestionList( { questions, onDeleteQuestion } ) {
+function QuestionList( { questions, onDeleteQuestion, onUpdateQuestion } ) {
 
   return (
     <section>
@@ -9,7 +9,12 @@ function QuestionList( { questions, onDeleteQuestion } ) {
       <ul>
         {/* display QuestionItem components here after fetching */}
         {questions.map(question => 
-          <QuestionItem key={question.id} question={question} onDeleteQuestion={onDeleteQuestion}/> 
+          <QuestionItem 
+              key={question.id} 
+              question={question} 
+              onDeleteQuestion={onDeleteQuestion}
+              onUpdateQuestion={onUpdateQuestion}
+          /> 
         )}
         
       </ul>
